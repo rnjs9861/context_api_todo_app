@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Button from "./Button";
 import TextInput from "./TextInput";
 import Title from "./Title";
 import styled from "@emotion/styled";
+import { TodoListContext } from "contexts/TodoListContext";
 
 const WrapStyle = styled.div`
   position: absolute;
@@ -41,7 +42,8 @@ const InputInnerStyle = styled.div`
   gap: 16px;
 `;
 
-const TodoInput = ({ onAdd }) => {
+const TodoInput = ({ onClose }) => {
+  const { onAdd } = useContext(TodoListContext);
   const [todo, setTodo] = useState("");
   const [mesaage, setMessage] = useState("");
 
@@ -51,6 +53,7 @@ const TodoInput = ({ onAdd }) => {
     }
     onAdd(todo);
     setTodo("");
+    onClose();
   };
 
   return (

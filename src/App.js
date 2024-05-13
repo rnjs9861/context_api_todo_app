@@ -5,6 +5,7 @@ import InputContainer from "components/InputContainer";
 import ShowInputButton from "components/ShowInputButton";
 import TextInput from "components/TextInput";
 import TodoInput from "components/TodoInput";
+import { TodoListContextProvider } from "contexts/TodoListContext";
 import { useState } from "react";
 
 const WrapStyle = styled.div`
@@ -17,23 +18,12 @@ const WrapStyle = styled.div`
 `;
 
 function App() {
-  const [todoList, setTodolist] = useState([
-    "contextAPI 공부하기",
-    "타입스크립트 공부하기",
-    "JWT 공부하기",
-  ]);
-
-  const onDelete = todo => {
-    setTodolist(todoList.filter(item => item != todo));
-  };
-  const onAdd = todo => {
-    setTodolist([...todoList, todo]);
-  };
-
   return (
     <WrapStyle>
-      <DataView todoList={todoList} onDelete={onDelete} />
-      <InputContainer onAdd={onAdd} />
+      <TodoListContextProvider>
+        <DataView />
+        <InputContainer />
+      </TodoListContextProvider>
     </WrapStyle>
   );
 }

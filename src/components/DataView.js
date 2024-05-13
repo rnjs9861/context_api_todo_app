@@ -12,11 +12,11 @@ const DataViewWrapStyle = styled.div`
   border-radius: 8px;
 `;
 
-const DataView = ({ todoList, onDelete }) => {
+const DataView = () => {
   return (
     <DataViewWrapStyle>
       <Title label="할 일 목록" />
-      <TodoList todoList={todoList} onDelete={onDelete} />
+      <TodoList />
     </DataViewWrapStyle>
   );
 };

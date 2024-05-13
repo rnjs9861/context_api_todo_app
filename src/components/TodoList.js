@@ -1,12 +1,16 @@
 import styled from "@emotion/styled";
 import TodoItem from "./TodoItem";
+import { useContext } from "react";
+import { TodoListContext } from "contexts/TodoListContext";
 
 const TodoListWrapStyle = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
-const TodoList = ({ todoList, onDelete }) => {
+const TodoList = () => {
+  const { todoList, onDelete } = useContext(TodoListContext);
+
   return (
     <TodoListWrapStyle>
       {todoList.map(todo => (
