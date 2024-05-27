@@ -2,6 +2,11 @@ import React from "react";
 import Button from "./Button";
 import styled from "@emotion/styled";
 
+interface Props {
+  show: boolean;
+  onClick: () => void;
+}
+
 const WrapStyle = styled.div`
   position: absolute;
   right: 40px;
@@ -9,7 +14,7 @@ const WrapStyle = styled.div`
   z-index: 1;
 `;
 
-const ShowInputButton = ({ show, onClick }) => {
+const ShowInputButton = ({ show, onClick }: Props) => {
   return (
     <WrapStyle>
       <Button

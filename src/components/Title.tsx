@@ -10,7 +10,11 @@ const LabelStyle = styled.h1`
   margin-top: 0;
 `;
 
-const Title = ({ label }) => {
+interface Props {
+  label: string;
+}
+
+const Title = ({ label }: Props) => {
   return (
     <TitleWrapStyle>
       <LabelStyle>{label}</LabelStyle>

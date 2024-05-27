@@ -6,7 +6,12 @@ const InputStyle = styled.input`
   padding: 8px;
 `;
 
-const TextInput = ({ value, onChange }) => {
+interface Props {
+  value: string;
+  onChange: (text: string) => void;
+}
+
+const TextInput = ({ value, onChange }: Props) => {
   return (
     <InputStyle
       type="text"

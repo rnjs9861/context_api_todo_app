@@ -1,6 +1,16 @@
 import styled from "@emotion/styled";
 
-const ButtonStyle = styled.button`
+interface ButtonStyleProps {
+  color: string;
+}
+
+interface Props {
+  label: string;
+  onClick?: () => void;
+  color?: string;
+}
+
+const ButtonStyle = styled.button<ButtonStyleProps>`
   border: 0;
   color: #fff;
   background-color: ${props => props.color};
@@ -18,7 +28,7 @@ const ButtonStyle = styled.button`
   }
 `;
 
-const Button = ({ label, onClick, color = "#ff5722" }) => {
+const Button = ({ label, onClick, color = "#ff5722" }: Props) => {
   return (
     <ButtonStyle onClick={onClick} color={color}>
       {label}

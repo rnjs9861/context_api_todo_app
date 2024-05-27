@@ -18,7 +18,12 @@ const LabelStyle = styled.div`
   margin-right: 16px;
 `;
 
-const TodoItem = ({ label, onDelete }) => {
+interface Props {
+  label: string;
+  onDelete?: () => void;
+}
+
+const TodoItem = ({ label, onDelete }: Props) => {
   return (
     <TodoItemWrapStyle>
       <LabelStyle>{label}</LabelStyle>
